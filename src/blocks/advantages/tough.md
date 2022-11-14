@@ -1,0 +1,7 @@
+---
+title: 'Tough'
+tags: ['advantage']
+---
+When this model is disabled, roll a d6. 
+On a 5 or 6, remove 1 damage point from this model; it is no longer disabled and becomes knocked down.
+While knocked down, this model loses Tough.

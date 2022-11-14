@@ -1,0 +1,87 @@
+---
+layout: '../../layouts/UnitLayout.astro'
+title: 'Dire Troll Bomber'
+author: 'M0rice'
+description: 'Bomber'
+pubDate:  '2022-11-12'
+tags: ['warbeast', 'trollblood']
+---
+import Advantages from './Advantages.astro'
+import Abilities from './Abilities.astro'
+import Weapon from './Weapon.astro'
+import Spell from './Spell.astro'
+
+export const mat = 6
+export const rat = 6
+
+# { frontmatter.title }
+Trollblood Storm of the North Heavy Warbeast
+
+PC: 17
+FA: 4
+
+# { frontmatter.title }
+| SPD | MAT     | RAT     | DEF | ARM | FURY | THR |
+|-----|---------|---------|-----|-----|------|-----|
+| 5   | { mat } | { rat } | 14  | 18  | 5    | 8   |
+
+<Advantages
+    labels = {[
+        'Dual Attack',
+        'Headbutt Power Attack',
+        'Slam Power Attack',
+        'Trample Power Attack',
+    ]}
+/>
+
+HP: 30
+[ `B: 12, S: 9, M: 9` ]
+
+Base size: 50
+
+## Abilities
+<Abilities
+    labels = {[
+        'Regeneration [d3]',
+        'Snacking',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Powder Bomb',
+        type: 'range',
+        stats: {
+            rat: rat,
+            rng: 8,
+            rof: 1,
+            aoe: 3,
+            pow: '16/8',
+        },
+        abilities: [
+            'Forced Reload [1]',
+        ],
+    }}
+/>
+<Weapon
+    infos = {{
+        name: 'Claw x2',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 1,
+            pow: 15,
+        },
+        qualities: [
+            'Throw Power Attack',
+        ],
+    }}
+/>
+
+## Animus
+<Spell
+    infos = {{
+        name: 'Far Strike',
+    }}
+/>

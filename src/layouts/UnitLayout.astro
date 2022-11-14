@@ -1,0 +1,44 @@
+---
+const { frontmatter } = Astro.props
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{ frontmatter.title }</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/unit.css">
+  </head>
+  <body>
+    <header class="site-header">Warma-wiki</header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Posts</a>
+      <a href="#">Contact</a>
+    </nav>
+    <article>
+      <slot />
+    </article>
+  </body>
+</html>
+
+<style>
+    header {
+        padding: 30px;
+        background-color: black;
+        color: whitesmoke;
+        font-size: 2em;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    article {
+        max-width: 800px;
+        padding: 20px;
+        margin: 0 auto;
+    }
+</style>

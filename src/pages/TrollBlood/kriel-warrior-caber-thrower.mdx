@@ -1,0 +1,60 @@
+---
+layout: '../../layouts/UnitLayout.astro'
+title: 'Kriel Warrior Caber Thrower'
+author: 'M0rice'
+description: 'Thrower'
+pubDate:  '2022-11-12'
+tags: ['wa', 'kriel warrior', 'trollblood']
+---
+import Advantages from './Advantages.astro'
+import Abilities from './Abilities.astro'
+import Weapon from './Weapon.astro'
+import Spell from './Spell.astro'
+
+export const mat = 5
+
+# { frontmatter.title }
+Trollblood Northkin Storm of the North Trollkin Weapon Attachment
+
+PC: 1
+FA: 12
+
+# { frontmatter.description }
+| SPD | MAT     | DEF | ARM |
+|-----|---------|-----|-----|
+| 5   | { mat } | 12  | 15  |
+
+<Advantages
+    labels = {[
+        'Resistance: Cold',
+        'Tough',
+    ]}
+/>
+
+Base size: 40
+
+## Abilities
+<Abilities
+    labels = {[
+        'Weapon Attachment [Kriel Warrior]',
+        'Take Up',
+        'Unyielding',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Caber',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 2,
+            pow: 13,
+        },
+        abilities: [
+            'Momentum',
+            'Single Shot',
+        ],
+    }}
+/>

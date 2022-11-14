@@ -1,0 +1,123 @@
+---
+layout: '../../layouts/UnitLayout.astro'
+title: 'Borka, Vengeance of the Rimeshaws'
+author: 'M0rice'
+description: 'Borka 2'
+pubDate:  '2022-11-12'
+tags: ['warlock', 'trollblood']
+---
+import Advantages from './Advantages.astro'
+import Abilities from './Abilities.astro'
+import Weapon from './Weapon.astro'
+import Spell from './Spell.astro'
+
+export const aat = 6
+export const mat = 8
+export const rat = 5
+
+# { frontmatter.title }
+Trollblood Northkin Scout Storm of the North Trollkin Warlock
+
+FA: C
+
+# { frontmatter.description }
+| SPD | AAT     | MAT     | RAT     | DEF | ARM | ARC | CTRL |
+|-----|---------|---------|---------|-----|-----|-----|------|
+| 7   | { aat } | { mat } | { rat } | 14  | 18  | 5   | 12   |
+
+<Advantages
+    labels = {[
+        'Cavalry',
+        'Dual Attack',
+        'Pathfinder',
+        'Resistance: Cold',
+        'Tough',
+    ]}
+/>
+
+HP: 18
+
+Base size: 50
+
+## Abilities
+<Abilities
+    labels = {[
+        'Attuned Spirit',
+        'Defiant Rage',
+        'Field Marshal [Northkin]',
+        'Reposition [3"]',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Bomb',
+        type: 'range',
+        stats: {
+            rat: rat,
+            rng: 8,
+            rof: 1,
+            aoe: 2,
+            pow: '12/6',
+        },
+    }}
+/>
+<Weapon
+    infos = {{
+        name: 'Trauma',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 2,
+            pow: 15,
+        },
+        qualities: [
+            'Damage Type: Magical',
+        ],
+        abilities: [
+            'Critical Smite',
+        ],
+    }}
+/>
+<Weapon
+    infos = {{
+        name: 'Bear Hands',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 1,
+            pow: 14,
+        },
+        abilities: [
+            'Knockdown',
+            'Trash',
+        ],
+    }}
+/>
+
+## Feat
+### Ice Storm
+> While in Borka's control range, models gain Stealth. When an enemy model without Resistance: Cold hits one or more friendly models in Borka's control range with Resistance: Cold with a melee attack, the enemy model becomes stationary for one round after the attack is resolved. Ice Storm lasts for one round.
+
+## Spells
+<Spell
+    infos = {{
+        name: 'Frostbite',
+        aat: aat,
+    }}
+/>
+
+<Spell
+    infos = {{
+        name: 'Snow Shroud',
+        aat: aat,
+    }}
+/>
+
+<Spell
+    infos = {{
+        name: 'Warpath',
+        aat: aat,
+    }}
+/>

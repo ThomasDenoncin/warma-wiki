@@ -1,0 +1,23 @@
+---
+import { parseAdvantage as parse } from '../../lib/parsers.js'
+
+const advantages = await Astro.glob('../../blocks/advantages/*.md')
+const { labels } = Astro.props
+---
+
+<p class="advantages">
+    { labels.map((label: string) => {
+        const advantage = parse(label)
+        return (
+            <a 
+                style="text-decoration: underline dotted; text-underline-offset: 5px; cursor: pointer;"
+                title = {
+                    advantages.find((a) => (
+                        a.frontmatter.title === advantage.label
+                    ))?.rawContent().replace('??', advantage.value)
+                }
+            >{ label }</a>
+            <span>,&nbsp;</span>
+        )
+    }) }
+</p>

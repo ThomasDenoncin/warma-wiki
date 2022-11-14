@@ -1,0 +1,56 @@
+---
+layout: '../../layouts/UnitLayout.astro'
+title: 'Kriel Warriors'
+author: 'M0rice'
+description: 'Kriel Warriors'
+pubDate:  '2022-11-12'
+tags: ['unit', 'kriel warrior', 'trollblood']
+---
+import Advantages from './Advantages.astro'
+import Abilities from './Abilities.astro'
+import Weapon from './Weapon.astro'
+import Spell from './Spell.astro'
+
+export const mat = 5
+
+# { frontmatter.title }
+Trollblood Northkin Storm of the North Trollkin Unit
+
+`5 Grunts`
+PC: 5
+FA: 4
+
+# Grunt
+| SPD | MAT     | DEF | ARM |
+|-----|---------|-----|-----|
+| 5   | { mat } | 12  | 15  |
+
+<Advantages
+    labels = {[
+        'Combined Melee Attack',
+        'Resistance: Cold',
+        'Tough',
+    ]}
+/>
+
+Base size: 40
+
+## Abilities
+<Abilities
+    labels = {[
+        'Unyielding',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Hand Weapon',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 1,
+            pow: 10,
+        },
+    }}
+/>

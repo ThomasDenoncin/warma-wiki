@@ -1,0 +1,6 @@
+---
+title: 'Shield'
+tags: ['quality']
+---
+This weapon is a shield that gives the model a cumulative +2 ARM bonus; for example, a model with two of them gains a bonus of +4 ARM.
+A model does not gain this bonus while the weapon system with the shield is crippled.

@@ -1,0 +1,6 @@
+---
+title: 'Critical Disruption'
+tags: ['quality']
+---
+On a critical hit on a warjack, the warjack suffers Disruption.
+A warjack suffering Disruption loses its focus points and cannot channel spells or gain focus by any means, including by being allocated focus, for one round.

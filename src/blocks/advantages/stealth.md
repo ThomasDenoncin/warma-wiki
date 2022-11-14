@@ -1,0 +1,6 @@
+---
+title: 'Stealth'
+tags: ['advantage']
+---
+Ranged and arcane attacks targeting this model from a point of origin greater than 5˝ away automatically miss.
+This model is not an intervening model when determining line of sight from a model more than 5˝ away.

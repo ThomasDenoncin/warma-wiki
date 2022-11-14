@@ -1,0 +1,90 @@
+---
+import Abilities from "./Abilities.astro";
+import Advantages from "./Advantages.astro";
+
+const { infos } = Astro.props
+const statsKeys = Object.keys(infos.stats)
+const statsValues = Object.values(infos.stats)
+---
+
+<div class="weapon">
+    <header>
+        <h3>{ infos.name } - { infos.type.toUpperCase() }</h3>
+        <div class="stats">
+            <table>
+                <thead>
+                    <tr>
+                        { 
+                            statsKeys.map((stat: string) => (
+                                <th>{ stat }</th>
+                            )) 
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        { 
+                            statsValues.map((stat: any) => (
+                                <td>{ stat }</td>
+                            ))
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        { 
+            infos.qualities &&
+            <div class="qualities">
+                <Advantages 
+                    labels = { infos.qualities }
+                />
+            </div>
+        }
+
+    </header>
+    
+    { 
+        infos.abilities &&
+        <Abilities
+            labels = { infos.abilities }
+            options = {{
+                title: false,
+                collapse: false,
+            }}
+        />
+    }
+
+</div>
+
+<style>
+    .weapon {
+        margin-bottom: 10px;
+        box-shadow: rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    header > h3 {
+        flex-grow: 1;
+    }
+    header table {
+        width: auto;
+        padding: 10px 20px;
+    }
+
+    th {
+        font-weight: normal;
+        font-size: .8em;
+        text-transform: uppercase;
+    }
+
+    .qualities {
+        flex-basis: 100%;
+        margin: 0 20px 10px;
+        text-align: right;
+    }
+</style>

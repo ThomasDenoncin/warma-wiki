@@ -1,0 +1,108 @@
+/* RESET */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: system-ui, sans-serif;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* MY CSS */
+
+body {
+    color: #222;
+}
+
+h1,
+h1 + p,
+h1 + p + p,
+h1 + table,
+h1 + table + p,
+h1 + table + p + p,
+h1 + table + p + p + p,
+h3,
+header {
+    background-color: whitesmoke;
+    color: #222;
+    /* box-shadow: 0px 1px 3px #999; */
+}
+h1 {
+    padding: 10px 20px 0;
+}
+h1 + p,
+h1 + table,
+h1 + table + p + p {
+    padding: 10px 20px 10px;
+}
+h1 + table + p {
+    padding: 0 20px;
+}
+h1 + p + p,
+h1 + table + p + p + p {
+    padding: 0 20px 10px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: inherit;
+    text-transform: uppercase;
+}
+
+h3,
+header table {
+    padding: 10px 20px;
+}
+
+h3 > span:last-child,
+P > span:last-child {
+    display: none;
+}
+
+header {
+    font-size: 1em;
+}
+
+table  {
+    width: 100%;
+}
+
+th, td {
+    border: 1px #333 solid;
+    padding: 5px 10px;
+}
+th {
+    font-weight: normal;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+td {
+    text-align: center;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 10px;
+    border: solid whitesmoke 1px;
+}
+blockquote > p {
+    margin: 0 0 10px;
+}

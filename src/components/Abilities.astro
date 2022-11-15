@@ -1,7 +1,7 @@
 ---
-import { parseAbility as parse } from '../../lib/parsers.js'
+import { parseAbility as parse } from '../lib/parsers.js'
 
-const abilities = await Astro.glob('../../blocks/abilities/*.md')
+const abilities = await Astro.glob('../blocks/abilities/*.md')
 const { labels } = Astro.props
 const options = Astro.props.options || { title: true, collapse: true }
 ---

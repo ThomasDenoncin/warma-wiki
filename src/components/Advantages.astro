@@ -1,7 +1,7 @@
 ---
-import { parseAdvantage as parse } from '../../lib/parsers.js'
+import { parseAdvantage as parse } from '../lib/parsers.js'
 
-const advantages = await Astro.glob('../../blocks/advantages/*.md')
+const advantages = await Astro.glob('../blocks/advantages/*.md')
 const { labels } = Astro.props
 ---
 

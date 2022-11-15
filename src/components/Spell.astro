@@ -1,6 +1,6 @@
 ---
 const { infos } = Astro.props
-const spells = await Astro.glob('../../blocks/spells/*.md')
+const spells = await Astro.glob('../blocks/spells/*.md')
 const spell = spells.find(
     (spell) => (
         spell.frontmatter.title === infos.name

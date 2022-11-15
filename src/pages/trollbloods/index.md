@@ -1,4 +1,4 @@
 ---
-title: trollblood
+title: 'trollblood'
 tags: ['faction']
 ---

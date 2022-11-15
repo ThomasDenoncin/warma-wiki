@@ -1,10 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro'
 const title = 'Warma-wiki'
+const factionIndexes = await Astro.glob('../pages/*/index.md')
+const factionList = factionIndexes.map((faction) => faction.frontmatter.title)
+const armyList = await Astro.glob('../pages/*/*/index.md')
+const unitList = await Astro.glob('../pages/**/*.mdx')
+unitList.sort((a, b) => a.frontmatter.title.localeCompare(b.frontmatter.title))
 ---
 
-<Layout title={title}>
-
+<Layout title = { title }>
+    <nav>
+        <ul>
+            {
+                factionList.map((faction) => (
+                    <li>
+                        <a href={ faction }>{ faction }</a>
+                        <ul>
+                            {
+                                armyList.map((army) => (
+                                    army.frontmatter.tags.includes( faction ) &&
+                                    <li>
+                                        <a href={ army.frontmatter.title }>{ army.frontmatter.title }</a>
+                                        <ul>
+                                            {
+                                                unitList.map((unit) => (
+                                                    unit.frontmatter.tags.includes( army.frontmatter.description ) &&
+                                                    <li>
+                                                        <a href={ unit.frontmatter.title }>{ unit.frontmatter.title }</a>
+                                                    </li>
+                                                ))
+                                            }    
+                                        </ul>    
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </li>
+                ))
+            }
+        </ul>
+    </nav>
 </Layout>
 
 <style>

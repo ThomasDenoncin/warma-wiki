@@ -1,11 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import NavList from '../components/layout/NavList.astro'
+import { factions } from '../lib/const.mjs'
+import { parseFaction } from '../lib/parsers.mjs'
+
 const title = 'Warma-wiki'
+const factionList = factions.map((faction) => ({ 
+    title : faction,
+    description : parseFaction(faction),
+}))
+const armyList = await Astro.glob('../pages/*/*/index.astro')
+const armies = armyList.map((army) => ({
+    title : army.title,
+    url : army.url,
+    tags : army.tags,
+}))
 ---
 
-<Layout title={title}>
-
+<Layout title = { title }>
+    <div class="nav">
+        <NavList
+            categories = { factionList }
+            pages = { armies }
+        />
+    </div>
 </Layout>
 
 <style>
+    .nav {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 </style>

@@ -1,0 +1,42 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import NavList from '../../../components/layout/NavList.astro'
+import { categories } from '../../../lib/const.mjs'
+import { excludeFromHordeCategories } from '../../../lib/const.mjs'
+import { parseCategory } from '../../../lib/parsers'
+
+export const title = 'Storm of the North', description = 'sotn', slug = 'storm-of-the-north', tags = ['army', 'trollbloods', 'horde']
+
+const unitTypes = categories
+    .filter(
+        (cat) => !excludeFromHordeCategories.includes(cat)
+    ).map(
+        (cat) => ({
+            title : cat,
+            description : parseCategory(cat),
+        })
+    )
+
+const unitList = await Astro.glob('./**/*.mdx')
+const units = unitList.map((unit) => ({
+    title : unit.frontmatter.title,
+    url : unit.url,
+    tags : unit.frontmatter.tags,
+}))
+---
+
+<Layout title = { title }>
+    <div class="nav">
+        <NavList
+            categories = { unitTypes }
+            pages = { units }
+        />
+    </div>
+</Layout>
+
+<style>
+    .nav {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+</style>

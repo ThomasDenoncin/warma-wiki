@@ -1,31 +1,50 @@
 ---
-const { title } = Astro.props;
----
+import BreadCrumbs from "../components/layout/BreadCrumbs.astro";
 
-<!DOCTYPE html>
+const { frontmatter, title } = Astro.props
+---
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>{ frontmatter?.title || title }</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/unit.css">
+  </head>
+  <body>
+    <header class="site-header">Warma-wiki</header>
+    <div class="breadcrumbs">
+      <BreadCrumbs />
+	</div>
+    <article>
+      <slot />
+    </article>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+
+<style>
+    header {
+        padding: 30px;
+        background-color: black;
+        color: whitesmoke;
+        font-size: 2em;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    article,
+	.breadcrumbs {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+	article {
+		padding: 20px;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+	.breadcrumbs {
+		padding: 20px 20px 0;
 	}
 </style>

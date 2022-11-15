@@ -1,4 +1,4 @@
-import { abilityExceptions, advantageExceptions, litteralTable } from "./const"
+import { abilityExceptions, advantageExceptions, litteralTable } from "./const.mjs"
 
 export function parseAbility (string) {
     return parseDynamicValue(string)    
@@ -24,6 +24,17 @@ export function parseAdvantage (string) {
         return parseDynamicValue(string)
     }
     return { label: string }
+}
+
+export function parseCategory (string) {
+    if (string.includes(' ')) {
+        return getCategoryInitials(string)
+    }
+    return string
+}
+
+export function parseFaction (string) {
+        return string.toLowerCase().replace(' ', '-')
 }
 
 function parseValue (string, regex) {
@@ -84,4 +95,13 @@ function parseDynamicValue (string) {
         label: string.slice(0, -(value[0].length + 1)), 
         value: value[0].slice(1, value[0].length - 1),
     }   
+}
+
+function getCategoryInitials (string) {
+    const rgx = new RegExp(/(\p{L}{1})\p{L}+/, 'gu')
+    let initials = [...string.matchAll(rgx)] || []
+    initials = (
+        (initials.shift()?.[1] || '') + (initials.pop()?.[1] || '')
+    )
+    return initials
 }

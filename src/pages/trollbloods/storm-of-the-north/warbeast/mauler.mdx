@@ -1,0 +1,79 @@
+---
+layout: '../../../../layouts/Layout.astro'
+title: 'Dire Troll Mauler'
+author: 'M0rice'
+description: 'Mauler'
+pubDate:  '2022-11-12'
+slug: 'mauler'
+tags: ['warbeast', 'sotn', 'trollbloods']
+---
+import Abilities from '../../../../components/Abilities.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Profile from '../../../../components/Profile.astro'
+import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
+
+export const mat = 7
+
+# { frontmatter.title }
+Trollblood Storm of the North Heavy Warbeast
+
+PC: 13
+FA: 4
+
+<Profile
+    infos = {{
+        name: frontmatter.title,
+        stats: {
+            spd: 5,
+            mat,
+            rat,
+            def: 12,
+            arm: 18,
+            fury: 5,
+            thr: 8,
+        },
+        advantages: [
+            'Headbutt Power Attack',
+            'Slam Power Attack',
+            'Trample Power Attack',
+        ],
+        hp: 30,
+        hp_detail: 'B:12, S:9, M:9',
+        base: 50,
+    }}
+/>
+
+## Abilities
+<Abilities
+    labels = {[
+        'Regeneration [d3]',
+        'Snacking',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Claw x2',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 1,
+            pow: 16,
+        },
+        qualities: [
+            'Throw Power Attack',
+        ],
+        abilities: [
+            'Chain Attack: Grab & Smash',
+        ]
+    }}
+/>
+
+## Animus
+<Spell
+    infos = {{
+        name: 'Rage',
+    }}
+/>

@@ -1,10 +1,10 @@
 ---
 layout: '../../../../layouts/Layout.astro'
-title: 'Borka, Vengeance of the Rimeshaws'
+title: 'Kolgrima Stonetruth, Winter Witch'
 author: 'M0rice'
-description: 'Borka 2'
+description: 'Kolgrima 1'
 pubDate:  '2022-11-12'
-slug: 'borka2'
+slug: 'kolgrima1'
 tags: ['warlock', 'sotn', 'trollbloods']
 ---
 import Abilities from '../../../../components/Abilities.astro'
@@ -14,12 +14,11 @@ import Profile from '../../../../components/Profile.astro'
 import Spell from '../../../../components/Spell.astro'
 import Weapon from '../../../../components/Weapon.astro'
 
-export const aat = 6
-export const mat = 8
-export const rat = 5
+export const aat = 7
+export const mat = 6
 
 # { frontmatter.title }
-Trollblood Northkin Scout Storm of the North Trollkin Warlock
+Trollblood Northkin Storm of the North Trollkin Warlock
 
 FA: C
 
@@ -27,105 +26,85 @@ FA: C
     infos = {{
         name: frontmatter.description,
         stats: {
-            spd: 7,
+            spd: 5,
             aat,
             mat,
-            rat,
             def: 14,
-            arm: 18,
-            arc: 5,
-            ctrl: 12,
+            arm: 15,
+            arc: 7,
+            ctrl: 14,
         },
         advantages: [
-            'Cavalry',
-            'Dual Attack',
             'Pathfinder',
             'Resistance: Cold',
             'Tough',
         ],
-        hp: 18,
-        base: 50,
+        hp: 15,
+        base: 40,
     }}
 />
 
 ## Abilities
 <Abilities
     labels = {[
-        'Attuned Spirit',
-        'Defiant Rage',
-        'Field Marshal [Northkin]',
-        'Reposition [3"]',
+        'Owl\'s Wisdom',
+        'Dark Power',
     ]}    
 />
 
 ## Weapons
 <Weapon
     infos = {{
-        name: 'Bomb',
-        type: 'range',
-        stats: {
-            rat,
-            rng: 8,
-            rof: 1,
-            aoe: 2,
-            pow: '12/6',
-        },
-    }}
-/>
-<Weapon
-    infos = {{
-        name: 'Trauma',
-        type: 'melee',
-        stats: {
-            mat,
-            rng: 2,
-            pow: 15,
-        },
-        qualities: [
-            'Damage Type: Magical',
-        ],
-        abilities: [
-            'Critical Smite',
-        ],
-    }}
-/>
-<Weapon
-    infos = {{
-        name: 'Bear Hands',
+        name: 'Knife',
         type: 'melee',
         stats: {
             mat,
             rng: 1,
-            pow: 14,
+            pow: 10,
         },
+        qualities: [
+            'Blessed',
+            'Damage Type: Magical',
+        ],
         abilities: [
-            'Knockdown',
-            'Trash',
+            'Dispel',
         ],
     }}
 />
 
 ## Feat
 <Feat
-    label = 'Ice Storm'
+    label = 'Snowblind'
 />
 
 ## Spells
 <Spell
     infos = {{
-        name: 'Frostbite',
+        name: 'Cursed Fate',
         aat,
     }}
 />
 <Spell
     infos = {{
-        name: 'Snow Shroud',
+        name: 'Freezing Mist',
         aat,
     }}
 />
 <Spell
     infos = {{
-        name: 'Warpath',
+        name: 'Hunter\'s Mark',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Vanish',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Winter\'s Tide',
         aat,
     }}
 />

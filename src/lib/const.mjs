@@ -2,6 +2,7 @@ import { parseCategory, parseFaction } from "./parsers.mjs"
 
 export const abilityExceptions = [
     'Field Marshal [Northkin]',
+    'Field Marshal [Overtake]',
 ]
 
 export const advantageExceptions = [

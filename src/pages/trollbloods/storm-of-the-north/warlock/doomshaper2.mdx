@@ -1,0 +1,108 @@
+---
+layout: '../../../../layouts/Layout.astro'
+title: 'Hoarluk Doomshaper, Rage of Dhunia'
+author: 'M0rice'
+description: 'Doomshaper 2'
+pubDate:  '2022-11-12'
+slug: 'doomshaper2'
+tags: ['warlock', 'sotn', 'trollbloods']
+---
+import Abilities from '../../../../components/Abilities.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Feat from '../../../../components/Feat.astro'
+import Profile from '../../../../components/Profile.astro'
+import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
+
+export const aat = 7
+export const mat = 5
+
+# { frontmatter.title }
+Trollblood Storm of the North Trollkin Warlock
+
+FA: C
+
+<Profile
+    infos = {{
+        name: frontmatter.description,
+        stats: {
+            spd: 5,
+            aat,
+            mat,
+            def: 13,
+            arm: 15,
+            arc: 7,
+            ctrl: 14,
+        },
+        advantages: [
+            'Tough',
+        ],
+        hp: 16,
+        base: 40,
+    }}
+/>
+
+## Abilities
+<Abilities
+    labels = {[
+        'Attuned Spirit',
+        'Field Marshal [Overtake]',
+        'Hyper-Regeneration',
+    ]}    
+/>
+
+## Weapons
+<Weapon
+    infos = {{
+        name: 'Willbreaker',
+        type: 'melee',
+        stats: {
+            mat,
+            rng: 2,
+            pow: 13,
+        },
+        qualities: [
+            'Damage Type: Magical',
+        ],
+        abilities: [
+            'Powerful Attack',
+        ],
+    }}
+/>
+
+## Feat
+<Feat
+    label = 'Scroll of Grimmr'
+/>
+
+## Spells
+<Spell
+    infos = {{
+        name: 'Agitation',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Hex Blast',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Psycho Surgery',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Sunder Spirit',
+        aat,
+    }}
+/>
+<Spell
+    infos = {{
+        name: 'Wild Aggression',
+        aat,
+    }}
+/>

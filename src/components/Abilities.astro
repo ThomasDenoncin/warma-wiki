@@ -1,29 +1,19 @@
 ---
-import { parseAbility as parse } from '../lib/parsers.js'
+import AbilitiesList from './AbilitiesList.astro'
 
-const abilities = await Astro.glob('../blocks/abilities/*.md')
 const { labels } = Astro.props
-const options = Astro.props.options || { title: true, collapse: true }
 ---
 
-{ 
-    options.title ? 
-        <h3>{ labels.map((label: string) => <>{label}<span>,&nbsp;</span></>) }</h3> :
-        <></> 
-}
-<blockquote>
-    { 
-        labels.map((label: string) => {
-            const ability = parse(label)
-            return ( 
-                <p>
-                    <b>{ label }</b> - {
-                        abilities.find((a) => (
-                            a.frontmatter.title === ability.label
-                        ))?.rawContent().replace('??', ability.value)
-                    }
-                </p>
-            ) 
-        })
+<div class="abilities">
+    <h3>{ labels.map((label: string) => <>{label}<span>,&nbsp;</span></>) }</h3>
+    <AbilitiesList
+        labels = { labels }
+    />
+</div>
+
+<style>
+    .abilities {
+        margin-bottom: 10px;
+        box-shadow: rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
     }
-</blockquote>
+</style>

@@ -6,10 +6,12 @@ description: 'Borka 2'
 pubDate:  '2022-11-12'
 tags: ['warlock', 'sotn', 'trollblood']
 ---
-import Advantages from '../../../../components/Advantages.astro'
 import Abilities from '../../../../components/Abilities.astro'
-import Weapon from '../../../../components/Weapon.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Feat from '../../../../components/Feat.astro'
+import Profile from '../../../../components/Profile.astro'
 import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
 
 export const aat = 6
 export const mat = 8
@@ -20,24 +22,30 @@ Trollblood Northkin Scout Storm of the North Trollkin Warlock
 
 FA: C
 
-# { frontmatter.description }
-| SPD | AAT     | MAT     | RAT     | DEF | ARM | ARC | CTRL |
-|-----|---------|---------|---------|-----|-----|-----|------|
-| 7   | { aat } | { mat } | { rat } | 14  | 18  | 5   | 12   |
-
-<Advantages
-    labels = {[
-        'Cavalry',
-        'Dual Attack',
-        'Pathfinder',
-        'Resistance: Cold',
-        'Tough',
-    ]}
+<Profile
+    infos = {{
+        name: frontmatter.description,
+        stats: {
+            spd: 7,
+            aat,
+            mat,
+            rat,
+            def: 14,
+            arm: 18,
+            arc: 5,
+            ctrl: 12,
+        },
+        advantages: [
+            'Cavalry',
+            'Dual Attack',
+            'Pathfinder',
+            'Resistance: Cold',
+            'Tough',
+        ],
+        hp: 18,
+        base: 50,
+    }}
 />
-
-HP: 18
-
-Base size: 50
 
 ## Abilities
 <Abilities
@@ -55,7 +63,7 @@ Base size: 50
         name: 'Bomb',
         type: 'range',
         stats: {
-            rat: rat,
+            rat,
             rng: 8,
             rof: 1,
             aoe: 2,
@@ -68,7 +76,7 @@ Base size: 50
         name: 'Trauma',
         type: 'melee',
         stats: {
-            mat: mat,
+            mat,
             rng: 2,
             pow: 15,
         },
@@ -85,7 +93,7 @@ Base size: 50
         name: 'Bear Hands',
         type: 'melee',
         stats: {
-            mat: mat,
+            mat,
             rng: 1,
             pow: 14,
         },
@@ -97,27 +105,28 @@ Base size: 50
 />
 
 ## Feat
-### Ice Storm
-> While in Borka's control range, models gain Stealth. When an enemy model without Resistance: Cold hits one or more friendly models in Borka's control range with Resistance: Cold with a melee attack, the enemy model becomes stationary for one round after the attack is resolved. Ice Storm lasts for one round.
+<Feat
+    label = 'Ice Storm'
+/>
 
 ## Spells
 <Spell
     infos = {{
         name: 'Frostbite',
-        aat: aat,
+        aat,
     }}
 />
 
 <Spell
     infos = {{
         name: 'Snow Shroud',
-        aat: aat,
+        aat,
     }}
 />
 
 <Spell
     infos = {{
         name: 'Warpath',
-        aat: aat,
+        aat,
     }}
 />

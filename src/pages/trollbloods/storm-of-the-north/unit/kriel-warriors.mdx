@@ -6,10 +6,11 @@ description: 'Kriel Warriors'
 pubDate:  '2022-11-12'
 tags: ['unit', 'kriel warrior', 'sotn', 'trollblood']
 ---
-import Advantages from '../../../../components/Advantages.astro'
 import Abilities from '../../../../components/Abilities.astro'
-import Weapon from '../../../../components/Weapon.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Profile from '../../../../components/Profile.astro'
 import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
 
 export const mat = 5
 
@@ -20,20 +21,23 @@ Trollblood Northkin Storm of the North Trollkin Unit
 PC: 5
 FA: 4
 
-# Grunt
-| SPD | MAT     | DEF | ARM |
-|-----|---------|-----|-----|
-| 5   | { mat } | 12  | 15  |
-
-<Advantages
-    labels = {[
-        'Combined Melee Attack',
-        'Resistance: Cold',
-        'Tough',
-    ]}
+<Profile
+    infos = {{
+        name: 'Grunt',
+        stats: {
+            spd: 5,
+            mat,
+            def: 12,
+            arm: 15,
+        },
+        advantages: [
+            'Combined Melee Attack',
+            'Resistance: Cold',
+            'Tough',
+        ],
+        base: 40,
+    }}
 />
-
-Base size: 40
 
 ## Abilities
 <Abilities

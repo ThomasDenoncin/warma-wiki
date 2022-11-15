@@ -1,38 +1,19 @@
 ---
-import Abilities from "./Abilities.astro";
+import AbilitiesList from "./AbilitiesList.astro";
 import Advantages from "./Advantages.astro";
+import Stats from "./Stats.astro";
 
 const { infos } = Astro.props
-const statsKeys = Object.keys(infos.stats)
-const statsValues = Object.values(infos.stats)
 ---
 
 <div class="weapon">
     <header>
         <h3>{ infos.name } - { infos.type.toUpperCase() }</h3>
         <div class="stats">
-            <table>
-                <thead>
-                    <tr>
-                        { 
-                            statsKeys.map((stat: string) => (
-                                <th>{ stat }</th>
-                            )) 
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        { 
-                            statsValues.map((stat: any) => (
-                                <td>{ stat }</td>
-                            ))
-                        }
-                    </tr>
-                </tbody>
-            </table>
+            <Stats
+                stats = { infos.stats }
+            />
         </div>
-
         { 
             infos.qualities &&
             <div class="qualities">
@@ -41,20 +22,13 @@ const statsValues = Object.values(infos.stats)
                 />
             </div>
         }
-
     </header>
-    
     { 
         infos.abilities &&
-        <Abilities
+        <AbilitiesList
             labels = { infos.abilities }
-            options = {{
-                title: false,
-                collapse: false,
-            }}
         />
     }
-
 </div>
 
 <style>

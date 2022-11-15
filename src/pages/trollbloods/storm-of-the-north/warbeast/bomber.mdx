@@ -6,10 +6,11 @@ description: 'Bomber'
 pubDate:  '2022-11-12'
 tags: ['warbeast', 'sotn', 'trollblood']
 ---
-import Advantages from '../../../../components/Advantages.astro'
 import Abilities from '../../../../components/Abilities.astro'
-import Weapon from '../../../../components/Weapon.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Profile from '../../../../components/Profile.astro'
 import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
 
 export const mat = 6
 export const rat = 6
@@ -20,24 +21,29 @@ Trollblood Storm of the North Heavy Warbeast
 PC: 17
 FA: 4
 
-# { frontmatter.title }
-| SPD | MAT     | RAT     | DEF | ARM | FURY | THR |
-|-----|---------|---------|-----|-----|------|-----|
-| 5   | { mat } | { rat } | 14  | 18  | 5    | 8   |
-
-<Advantages
-    labels = {[
-        'Dual Attack',
-        'Headbutt Power Attack',
-        'Slam Power Attack',
-        'Trample Power Attack',
-    ]}
+<Profile
+    infos = {{
+        name: frontmatter.title,
+        stats: {
+            spd: 5,
+            mat,
+            rat,
+            def: 12,
+            arm: 18,
+            fury: 5,
+            thr: 8,
+        },
+        advantages: [
+            'Dual Attack',
+            'Headbutt Power Attack',
+            'Slam Power Attack',
+            'Trample Power Attack',
+        ],
+        hp: 30,
+        hp_detail: 'B:12, S:9, M:9',
+        base: 50,
+    }}
 />
-
-HP: 30
-[ `B: 12, S: 9, M: 9` ]
-
-Base size: 50
 
 ## Abilities
 <Abilities

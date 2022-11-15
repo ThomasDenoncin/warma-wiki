@@ -1,0 +1,34 @@
+---
+import Advantages from "./Advantages.astro";
+import Stats from "./Stats.astro";
+
+const { infos } = Astro.props
+---
+
+<div class="profile">
+    <h1>{ infos.name }</h1>
+    <Stats
+        stats = { infos.stats }
+    />
+    <Advantages
+        labels = { infos.advantages }
+    />
+    { infos.hp &&
+        <p>HP : { infos.hp } { infos.hp_detail && <code> { infos.hp_detail } </code> }</p>
+    }
+    <p>Base size : { infos.base }</p>
+</div>
+
+<style>
+    .profile {
+        margin-bottom: 10px;
+        box-shadow: rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    }
+    code {
+        font-size: .9em;
+        background-color: #CCC;
+        line-height: 1;
+        overflow-wrap: break-word;
+        padding: 2px 5px;
+    }
+</style>

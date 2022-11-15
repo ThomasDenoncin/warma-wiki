@@ -1,0 +1,23 @@
+---
+import { parseAbility as parse } from '../lib/parsers.js'
+
+const abilities = await Astro.glob('../blocks/abilities/*.md')
+const { labels } = Astro.props
+---
+
+<blockquote>
+    { 
+        labels.map((label: string) => {
+            const ability = parse(label)
+            return ( 
+                <p>
+                    <b>{ label }</b> - {
+                        abilities.find((a) => (
+                            a.frontmatter.title === ability.label
+                        ))?.rawContent().replace('??', ability.value)
+                    }
+                </p>
+            ) 
+        })
+    }
+</blockquote>

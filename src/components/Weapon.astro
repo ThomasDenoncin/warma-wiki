@@ -1,5 +1,5 @@
 ---
-import Abilities from "./Abilities.astro";
+import AbilitiesList from "./AbilitiesList.astro";
 import Advantages from "./Advantages.astro";
 
 const { infos } = Astro.props
@@ -46,12 +46,8 @@ const statsValues = Object.values(infos.stats)
     
     { 
         infos.abilities &&
-        <Abilities
+        <AbilitiesList
             labels = { infos.abilities }
-            options = {{
-                title: false,
-                collapse: false,
-            }}
         />
     }
 

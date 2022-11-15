@@ -31,7 +31,9 @@ const statsValues = Object.values(infos.stats)
     <Advantages
         labels = { infos.advantages }
     />
-    <p>HP : { infos.hp }</p>
+    { infos.hp &&
+        <p>HP : { infos.hp } { infos.hp_detail && <code> { infos.hp_detail } </code> }</p>
+    }
     <p>Base size : { infos.base }</p>
 </div>
 
@@ -39,5 +41,12 @@ const statsValues = Object.values(infos.stats)
     .profile {
         margin-bottom: 10px;
         box-shadow: rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+    }
+    code {
+        font-size: .9em;
+        background-color: #CCC;
+        line-height: 1;
+        overflow-wrap: break-word;
+        padding: 2px 5px;
     }
 </style>

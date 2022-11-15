@@ -1,0 +1,4 @@
+---
+title: 'khador'
+tags: ['faction']
+---

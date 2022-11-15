@@ -8,4 +8,5 @@ stats:
     dur: '*'
     off: 'Yes'
 ---
-Frostbite causes cold damage. On a critical hit, the model hit becomes stationary for one round unless it has Resistance: Cold.
+Frostbite causes cold damage.
+On a critical hit, the model hit becomes stationary for one round unless it has Resistance: Cold.

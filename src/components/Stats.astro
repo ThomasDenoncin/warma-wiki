@@ -1,0 +1,26 @@
+---
+const { stats } = Astro.props
+const statsKeys = Object.keys(stats)
+const statsValues = Object.values(stats)
+---
+
+<table>
+    <thead>
+        <tr>
+            { 
+                statsKeys.map((stat: string) => (
+                    <th>{ stat }</th>
+                )) 
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            { 
+                statsValues.map((stat: any) => (
+                    <td>{ stat }</td>
+                ))
+            }
+        </tr>
+    </tbody>
+</table>

@@ -1,33 +1,15 @@
 ---
 import Advantages from "./Advantages.astro";
+import Stats from "./Stats.astro";
 
 const { infos } = Astro.props
-const statsKeys = Object.keys(infos.stats)
-const statsValues = Object.values(infos.stats)
 ---
 
 <div class="profile">
     <h1>{ infos.name }</h1>
-    <table>
-        <thead>
-            <tr>
-                { 
-                    statsKeys.map((stat: string) => (
-                        <th>{ stat }</th>
-                    )) 
-                }
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                { 
-                    statsValues.map((stat: any) => (
-                        <td>{ stat }</td>
-                    ))
-                }
-            </tr>
-        </tbody>
-    </table>
+    <Stats
+        stats = { infos.stats }
+    />
     <Advantages
         labels = { infos.advantages }
     />

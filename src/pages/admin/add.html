@@ -1,0 +1,125 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add unit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/unit.css">
+  </head>
+  <body>
+    <header class="site-header">Warma-wiki</header>
+    <main>
+        <header>Add unit</header>
+        <div class="form-wrapper">
+            <form>
+                <div class="form-section">
+                    <h3>unit infos</h3>
+                    <fieldset>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" placeholder="Unit title">
+                    </fieldset>
+                    <fieldset>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="Unit name">
+                    </fieldset>
+                    <fieldset>
+                        <label for="keywords">Keywords</label>
+                        <input type="text" name="keywords" placeholder="Faction Army keywords">
+                    </fieldset>
+                    <fieldset>
+                        <label for="fa">Field Allowance</label>
+                        <input type="text" name="fa" placeholder="Field Allowance">
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <h3>unit profile</h3>
+                    <fieldset>
+                        <label for="spd">SPD</label>
+                        <input type="text" name="spd" placeholder="Speed">
+                    </fieldset>
+                    <fieldset>
+                        <label for="aat">AAT</label>
+                        <input type="text" name="aat" placeholder="Arcane Attack">
+                    </fieldset>
+                    <fieldset>
+                        <label for="mat">MAT</label>
+                        <input type="text" name="mat" placeholder="Melee Attack">
+                    </fieldset>
+                    <fieldset>
+                        <label for="rat">RAT</label>
+                        <input type="text" name="rat" placeholder="Range Attack">
+                    </fieldset>
+                    <fieldset>
+                        <label for="def">DEF</label>
+                        <input type="text" name="def" placeholder="Defence">
+                    </fieldset>
+                    <fieldset>
+                        <label for="arm">ARM</label>
+                        <input type="text" name="arm" placeholder="Armor">
+                    </fieldset>
+                    <fieldset>
+                    <label for="arc">ARC</label>
+                        <input type="text" name="arc" placeholder="Arcane value">
+                    </fieldset>
+                    <fieldset>
+                        <label for="ctrl">CTRL</label>
+                        <input type="text" name="ctrl" placeholder="Controle Range">
+                    </fieldset>
+                    <fieldset>
+                        <label for="hp">HP</label>
+                        <input type="text" name="hp" placeholder="Health Points">
+                    </fieldset>
+                    <fieldset>
+                    <label for="base">Base</label>
+                        <input type="text" name="base" placeholder="Base size">
+                    </fieldset>
+                    <fieldset>
+                        <label for="adv">Advantages</label>
+                        <select name="adv" placeholder="Advantages"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <h3>unit abilities</h3>
+                    <fieldset>
+                        <label for="abil">Abilities</label>
+                        <select name="abil" placeholder="Abilities"></select>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div class="breadcrumbs">
+      <BreadCrumbs />
+	</div>
+    <article>
+      <slot />
+    </article>
+  </body>
+</html>
+
+<style>
+    header {
+        padding: 30px;
+        background-color: black;
+        color: whitesmoke;
+        font-size: 2em;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    article,
+	.breadcrumbs {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+	article {
+		padding: 20px;
+	}
+	.breadcrumbs {
+		padding: 20px 20px 0;
+	}
+</style>

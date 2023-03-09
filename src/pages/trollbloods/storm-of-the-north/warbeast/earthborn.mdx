@@ -1,10 +1,10 @@
 ---
 layout: '../../../../layouts/Layout.astro'
-title: 'Dire Troll Mauler'
+title: 'Earthborn Dire Troll'
 author: 'M0rice'
-description: 'Mauler'
+description: 'Earthborn'
 pubDate:  '2022-11-12'
-slug: 'mauler'
+slug: 'earthborn'
 tags: ['warbeast', 'sotn', 'trollbloods']
 ---
 import Abilities from '../../../../components/Abilities.astro'
@@ -16,9 +16,9 @@ import Weapon from '../../../../components/Weapon.astro'
 export const mat = 7
 
 # { frontmatter.title }
-Trollblood Dire Troll Storm of the North Heavy Warbeast
+Trollblood Storm of the North Heavy Warbeast
 
-PC: 14
+PC: 13
 FA: 4
 
 <Profile
@@ -30,16 +30,19 @@ FA: 4
             def: 12,
             arm: 18,
             fury: 5,
-            thr: 8,
+            thr: 9,
         },
         advantages: [
-            'Gliadiator',
             'Headbutt Power Attack',
+            'Resistance: Cold',
+            'Resistance: Corosion',
+            'Resistance: Eletricity',
+            'Resistance: Fire',
             'Slam Power Attack',
             'Trample Power Attack',
         ],
-        hp: 30,
-        hp_detail: 'B:12, S:9, M:9',
+        hp: 32,
+        hp_detail: 'B:11, S:11, M:10',
         base: 50,
     }}
 />
@@ -47,6 +50,7 @@ FA: 4
 ## Abilities
 <Abilities
     labels = {[
+        'Elemental Communion',
         'Regeneration [d3]',
         'Snacking',
     ]}    
@@ -55,25 +59,22 @@ FA: 4
 ## Weapons
 <Weapon
     infos = {{
-        name: 'Big Meaty Fist x2',
+        name: 'Claw x2',
         type: 'melee',
         stats: {
             mat: mat,
             rng: 1,
-            pow: 16,
+            pow: 15,
         },
         qualities: [
             'Throw Power Attack',
         ],
-        abilities: [
-            'Chain Attack: Grab & Smash',
-        ]
     }}
 />
 
 ## Animus
 <Spell
     infos = {{
-        name: 'Rage',
+        name: 'Earth Blessing',
     }}
 />

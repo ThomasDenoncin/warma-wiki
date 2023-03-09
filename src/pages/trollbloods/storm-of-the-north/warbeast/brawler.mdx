@@ -1,10 +1,10 @@
 ---
 layout: '../../../../layouts/Layout.astro'
-title: 'Dire Troll Mauler'
+title: 'Dire Troll Brawler'
 author: 'M0rice'
-description: 'Mauler'
+description: 'Brawler'
 pubDate:  '2022-11-12'
-slug: 'mauler'
+slug: 'brawler'
 tags: ['warbeast', 'sotn', 'trollbloods']
 ---
 import Abilities from '../../../../components/Abilities.astro'
@@ -16,7 +16,7 @@ import Weapon from '../../../../components/Weapon.astro'
 export const mat = 7
 
 # { frontmatter.title }
-Trollblood Dire Troll Storm of the North Heavy Warbeast
+Trollblood Northkin Storm of the North Heavy Warbeast
 
 PC: 14
 FA: 4
@@ -29,12 +29,12 @@ FA: 4
             mat,
             def: 12,
             arm: 18,
-            fury: 5,
+            fury: 4,
             thr: 8,
         },
         advantages: [
-            'Gliadiator',
             'Headbutt Power Attack',
+            'Resistance: Cold',
             'Slam Power Attack',
             'Trample Power Attack',
         ],
@@ -55,25 +55,22 @@ FA: 4
 ## Weapons
 <Weapon
     infos = {{
-        name: 'Big Meaty Fist x2',
+        name: 'Flail x2',
         type: 'melee',
         stats: {
             mat: mat,
-            rng: 1,
-            pow: 16,
+            rng: 2,
+            pow: 17,
         },
         qualities: [
-            'Throw Power Attack',
+            'Chain Weapon',
         ],
-        abilities: [
-            'Chain Attack: Grab & Smash',
-        ]
     }}
 />
 
 ## Animus
 <Spell
     infos = {{
-        name: 'Rage',
+        name: 'Ornery',
     }}
 />

@@ -1,10 +1,10 @@
 ---
 layout: '../../../../layouts/Layout.astro'
-title: 'Dire Troll Mauler'
+title: 'Mulg the Ancient'
 author: 'M0rice'
-description: 'Mauler'
+description: 'Mulg 1'
 pubDate:  '2022-11-12'
-slug: 'mauler'
+slug: 'mulg'
 tags: ['warbeast', 'sotn', 'trollbloods']
 ---
 import Abilities from '../../../../components/Abilities.astro'
@@ -18,28 +18,27 @@ export const mat = 7
 # { frontmatter.title }
 Trollblood Dire Troll Storm of the North Heavy Warbeast
 
-PC: 14
-FA: 4
+PC: 17
+FA: C
 
 <Profile
     infos = {{
         name: frontmatter.title,
         stats: {
-            spd: 5,
+            spd: 4,
             mat,
-            def: 12,
-            arm: 18,
-            fury: 5,
-            thr: 8,
+            def: 10,
+            arm: 19,
+            fury: 4,
+            thr: 7,
         },
         advantages: [
-            'Gliadiator',
             'Headbutt Power Attack',
             'Slam Power Attack',
             'Trample Power Attack',
         ],
-        hp: 30,
-        hp_detail: 'B:12, S:9, M:9',
+        hp: 34,
+        hp_detail: 'B:13, S:12, M:9',
         base: 50,
     }}
 />
@@ -47,7 +46,11 @@ FA: 4
 ## Abilities
 <Abilities
     labels = {[
-        'Regeneration [d3]',
+        'Arcane Vortex',
+        'Bond [Doomshaper]'
+        'Hyper-Regeneration',
+        'Primal Rage',
+        'Relentless Charge',
         'Snacking',
     ]}    
 />
@@ -55,25 +58,39 @@ FA: 4
 ## Weapons
 <Weapon
     infos = {{
-        name: 'Big Meaty Fist x2',
+        name: 'Rune Club',
+        type: 'melee',
+        stats: {
+            mat: mat,
+            rng: 2,
+            pow: 19,
+        },
+        qualities: [
+            'Damage Type: Magical',
+        ],
+        abilities: [
+            'Critical Smite',
+        ]
+    }}
+/>
+<Weapon
+    infos = {{
+        name: 'Big Meaty Fist',
         type: 'melee',
         stats: {
             mat: mat,
             rng: 1,
-            pow: 16,
+            pow: 17,
         },
         qualities: [
             'Throw Power Attack',
         ],
-        abilities: [
-            'Chain Attack: Grab & Smash',
-        ]
     }}
 />
 
 ## Animus
 <Spell
     infos = {{
-        name: 'Rage',
+        name: 'Spiritual Conduit',
     }}
 />

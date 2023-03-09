@@ -1,0 +1,140 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add unit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/unit.css">
+  </head>
+  <body>
+    <header class="site-header">Warma-wiki</header>
+    <main>
+        <header>Add unit</header>
+        <div class="form-wrapper">
+            <form>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>faction</legend>
+                        <label for="faction">Faction</label>
+                        <select name="faction"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit type</legend>
+                        <input type="radio" name="type" id="caster" value="caster">
+                        <label for="caster">Warcaster</label>
+                        <input type="radio" name="type" id="lock" value="lock">
+                        <label for="lock">Warlock</label>
+                        <input type="radio" name="type" id="jack" value="jack">
+                        <label for="jack">Warjack</label>
+                        <input type="radio" name="type" id="beast" value="beast">
+                        <label for="beast">Warbeast</label>
+                        <input type="radio" name="type" id="solo" value="solo">
+                        <label for="solo">Solo</label>
+                        <input type="radio" name="type" id="unit" value="unit">
+                        <label for="unit">Unit</label>
+                        <input type="radio" name="type" id="attach" value="attach">
+                        <label for="attach">Attachement</label>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit infos</legend>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" placeholder="Unit title">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="Unit name">
+                        <label for="keywords">Keywords</label>
+                        <input type="text" name="keywords" placeholder="Faction Army keywords">
+                        <label for="fa">Field Allowance</label>
+                        <input type="text" name="fa" placeholder="Field Allowance">
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit profile</legend>
+                        <label for="spd">SPD</label>
+                        <input type="text" name="spd" placeholder="Speed">
+                        <label for="aat">AAT</label>
+                        <input type="text" name="aat" placeholder="Arcane Attack">
+                        <label for="mat">MAT</label>
+                        <input type="text" name="mat" placeholder="Melee Attack">
+                        <label for="rat">RAT</label>
+                        <input type="text" name="rat" placeholder="Range Attack">
+                        <label for="def">DEF</label>
+                        <input type="text" name="def" placeholder="Defence">
+                        <label for="arm">ARM</label>
+                        <input type="text" name="arm" placeholder="Armor">
+                        <label for="arc">ARC</label>
+                        <input type="text" name="arc" placeholder="Arcane value">
+                        <label for="ctrl">CTRL</label>
+                        <input type="text" name="ctrl" placeholder="Controle Range">
+                        <label for="hp">HP</label>
+                        <input type="text" name="hp" placeholder="Health Points">
+                        <label for="base">Base</label>
+                        <input type="text" name="base" placeholder="Base size">
+                        <label for="adv">Advantages</label>
+                        <select name="adv"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit abilities</legend>
+                        <label for="abil">Abilities</label>
+                        <select name="abil"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit weapons</legend>
+                        <label for="weapons">Weapons</label>
+                        <select name="weapons"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit feat</legend>
+                        <label for="feat">Feat</label>
+                        <select name="feat"></select>
+                    </fieldset>
+                </div>
+                <div class="form-section">
+                    <fieldset>
+                        <legend>unit spells</legend>
+                        <label for="spells">Spells</label>
+                        <select name="spells"></select>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+    </main>
+  </body>
+</html>
+
+<style>
+    header {
+        padding: 30px;
+        background-color: black;
+        color: whitesmoke;
+        font-size: 2em;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    article,
+	.breadcrumbs {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+	article {
+		padding: 20px;
+	}
+	.breadcrumbs {
+		padding: 20px 20px 0;
+	}
+</style>

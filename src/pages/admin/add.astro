@@ -1,3 +1,12 @@
+---
+import { factions } from '../../lib/const.mjs'
+
+const armiesList = await Astro.glob('../../pages/*/*/index.astro')
+const armiesTitles = armiesList.map(({title, description, tags}) => ({title, description, tags}))
+
+const factionsString = JSON.stringify(factions)
+const armiesListString = JSON.stringify(armiesTitles)
+---
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,34 +20,84 @@
     <main>
         <header>Add unit</header>
         <div class="form-wrapper">
-            <form>
+            <form x-data="{
+                faction: '',
+                army: '',
+                type: '',
+                isLeader() {
+                    return this.type === 'warlock' || this.type === 'warcaster'
+                },
+                get keywords() {
+                    return this.faction + ' ' + this.army + ' ' + this.type
+                }
+            }">
                 <div class="form-section">
                     <fieldset>
                         <legend>faction</legend>
                         <label for="faction">Faction</label>
-                        <select name="faction"></select>
+                        <select 
+                            name="faction"
+                            x-data=`{factionList: ${factionsString}}`
+                            x-model="faction"
+                        >
+                            <option value="">-</option>
+                            <template x-for="faction in factionList">
+                                <option 
+                                    x-text="faction"
+                                    x-bind:value="faction"
+                                ></option>
+                            </template> 
+                        </select>
+                        <label 
+                            for="army"
+                            x-show="faction"
+                        >Army</label>
+                        <select 
+                            name="army"
+                            x-show="faction"
+                            x-data=`{
+                                armyList: ${armiesListString},
+                                factionArmyList: []
+                            }`
+                            x-effect="
+                                factionArmyList = armyList.filter(army => (
+                                    army.tags.includes(faction.toLowerCase())
+                                ))
+                            " 
+                            x-model="army"
+                        >
+                            <template x-for="army in factionArmyList">
+                                <option 
+                                    x-text="army.title"
+                                    x-bind:value="army.description"
+                                ></option>
+                            </template> 
+                        </select>
                     </fieldset>
                 </div>
                 <div class="form-section">
                     <fieldset>
                         <legend>unit type</legend>
-                        <input type="radio" name="type" id="caster" value="caster">
+                        <input x-model="type" type="radio" name="type" id="warcaster" value="warcaster">
                         <label for="caster">Warcaster</label>
-                        <input type="radio" name="type" id="lock" value="lock">
+                        <input x-model="type" type="radio" name="type" id="warlock" value="warlock">
                         <label for="lock">Warlock</label>
-                        <input type="radio" name="type" id="jack" value="jack">
+                        <input x-model="type" type="radio" name="type" id="warjack" value="warjack">
                         <label for="jack">Warjack</label>
-                        <input type="radio" name="type" id="beast" value="beast">
+                        <input x-model="type" type="radio" name="type" id="warbeast" value="warbeast">
                         <label for="beast">Warbeast</label>
-                        <input type="radio" name="type" id="solo" value="solo">
+                        <input x-model="type" type="radio" name="type" id="solo" value="solo">
                         <label for="solo">Solo</label>
-                        <input type="radio" name="type" id="unit" value="unit">
+                        <input x-model="type" type="radio" name="type" id="unit" value="unit">
                         <label for="unit">Unit</label>
-                        <input type="radio" name="type" id="attach" value="attach">
+                        <input x-model="type" type="radio" name="type" id="attachment" value="attachment">
                         <label for="attach">Attachement</label>
                     </fieldset>
                 </div>
-                <div class="form-section">
+                <div
+                    class="form-section"
+                    x-data="{fa: ''}"
+                >
                     <fieldset>
                         <legend>unit infos</legend>
                         <label for="title">Title</label>
@@ -46,34 +105,43 @@
                         <label for="name">Name</label>
                         <input type="text" name="name" placeholder="Unit name">
                         <label for="keywords">Keywords</label>
-                        <input type="text" name="keywords" placeholder="Faction Army keywords">
+                        <input x-model="keywords" type="text" name="keywords" placeholder="Faction Army keywords">
                         <label for="fa">Field Allowance</label>
-                        <input type="text" name="fa" placeholder="Field Allowance">
+                        <input 
+                            type="text" 
+                            name="fa"
+                            placeholder="Field Allowance"
+                            x-text="fa"
+                            x-model="fa"
+                            x-effect="
+                                fa = type && isLeader() ? 'C' : ''
+                            "
+                        >
                     </fieldset>
                 </div>
                 <div class="form-section">
                     <fieldset>
                         <legend>unit profile</legend>
                         <label for="spd">SPD</label>
-                        <input type="text" name="spd" placeholder="Speed">
-                        <label for="aat">AAT</label>
-                        <input type="text" name="aat" placeholder="Arcane Attack">
+                        <input type="number" pattern="\d*" name="spd" placeholder="Speed">
+                        <label x-show="isLeader()" for="aat">AAT</label>
+                        <input x-show="isLeader()" type="number" pattern="\d*" name="aat" placeholder="Arcane Attack">
                         <label for="mat">MAT</label>
-                        <input type="text" name="mat" placeholder="Melee Attack">
+                        <input type="number" pattern="\d*" name="mat" placeholder="Melee Attack">
                         <label for="rat">RAT</label>
-                        <input type="text" name="rat" placeholder="Range Attack">
+                        <input type="number" pattern="\d*" name="rat" placeholder="Range Attack">
                         <label for="def">DEF</label>
-                        <input type="text" name="def" placeholder="Defence">
+                        <input type="number" pattern="\d*" name="def" placeholder="Defence">
                         <label for="arm">ARM</label>
-                        <input type="text" name="arm" placeholder="Armor">
-                        <label for="arc">ARC</label>
-                        <input type="text" name="arc" placeholder="Arcane value">
-                        <label for="ctrl">CTRL</label>
-                        <input type="text" name="ctrl" placeholder="Controle Range">
+                        <input type="number" pattern="\d*" name="arm" placeholder="Armor">
+                        <label x-show="isLeader()" for="arc">ARC</label>
+                        <input x-show="isLeader()" type="number" pattern="\d*" name="arc" placeholder="Arcane value">
+                        <label x-show="isLeader()" for="ctrl">CTRL</label>
+                        <input x-show="isLeader()" type="number" pattern="\d*" name="ctrl" placeholder="Controle Range">
                         <label for="hp">HP</label>
-                        <input type="text" name="hp" placeholder="Health Points">
+                        <input type="number" pattern="\d*" name="hp" placeholder="Health Points">
                         <label for="base">Base</label>
-                        <input type="text" name="base" placeholder="Base size">
+                        <input type="number" pattern="\d*" name="base" placeholder="Base size">
                         <label for="adv">Advantages</label>
                         <select name="adv"></select>
                     </fieldset>

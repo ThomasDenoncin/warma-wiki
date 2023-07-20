@@ -1,5 +1,7 @@
 ---
 import { factions } from '../../lib/const.mjs'
+import Mustache from 'mustache'
+import * as fs from 'fs'
 
 const armiesList = await Astro.glob('../../pages/*/*/index.astro')
 const armiesTitles = armiesList.map(({title, description, tags}) => ({title, description, tags}))
@@ -10,13 +12,11 @@ const armiesListString = JSON.stringify(armiesTitles)
 async function handleSubmit(e) {
     console.log('handleSubmit')
     const formData = new FormData(e.target)
-    console.log('form formdata', formData)
-    const response = await fetch('/api/unit', {
-        method: 'POST',
-        body: formData
-    })
-    const data = await response.json()
-    console.log('response data', data)
+    console.log('api data', formData)
+    const template = fs.readFileSync('../../templates/leader.mustache')
+    const output = Mustache.render(template, formData, [ '<%', '%>' ])
+    fs.writeFileSync('../test/test.mdx', output)
+    console.log('response data', formData)
 }
 ---
 <html lang="en">
@@ -47,7 +47,7 @@ async function handleSubmit(e) {
                     const armySpacer = this.army + this.army !== '' ? ' ' : ''
                     return this.faction + factionSpacer + this.army + armySpacer + this.type
                 }
-            }` method="POST">
+            }` method="GET">
                 <div class="form-section">
                     <fieldset>
                         <legend>faction</legend>

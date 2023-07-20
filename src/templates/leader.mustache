@@ -1,0 +1,93 @@
+---
+layout: '../../../../layouts/Layout.astro'
+title: <%unit.title%>
+author: 'M0rice'
+description: <%unit.name%>
+pubDate:  <%createdDate%>
+slug: <%unit.slug%>
+tags: <%unit.tags%>
+---
+import Abilities from '../../../../components/Abilities.astro'
+import Advantages from '../../../../components/Advantages.astro'
+import Feat from '../../../../components/Feat.astro'
+import Profile from '../../../../components/Profile.astro'
+import Spell from '../../../../components/Spell.astro'
+import Weapon from '../../../../components/Weapon.astro'
+
+<%#unit.stats.aat%>
+    export const aat = <%.%>
+<%/unit.stats.aat%>
+<%#unit.stats.mat%>
+    export const mat = <%.%>
+<%/unit.stats.mat%>
+<%#unit.stats.rat%>
+    export const rat = <%.%>
+<%/unit.stats.rat%>
+
+# { frontmatter.title }
+<%unit.keywords%>
+
+FA: <%unit.fa%>
+
+<Profile
+    infos = {{
+        name: frontmatter.description,
+        stats: {
+            spd: <%unit.stats.spd%>,
+            <%#unit.stats.aat%>
+            aat,
+            <%/unit.stats.aat%>
+            <%#unit.stats.mat%>
+            mat,
+            <%/unit.stats.mat%>
+            <%#unit.stats.rat%>
+            rat,
+            <%/unit.stats.rat%>
+            def: <%unit.stats.def%>,
+            arm: <%unit.stats.arm%>,
+            arc: <%unit.stats.arc%>,
+            ctrl: <%unit.stats.ctrl%>,
+        },
+        advantages: [
+            <%#unit.advantages%>
+                <%.%>,
+            <%/unit.advantages%>
+        ],
+        hp: <%unit.hp%>,
+        base: <%unit.baseSize%>,
+    }}
+/>
+
+## Abilities
+<Abilities
+    labels = {[
+        <%#unit.abilities%>
+            <%.%>,
+        <%/unit.abilities%>
+    ]}    
+/>
+
+## Weapons
+<%#unit.weapons%>
+<Weapon
+    infos = {{
+        name: <%name%>,
+        stat: <%stat%>
+    }}
+/>
+<%/unit.weapons%>
+
+## Feat
+<Feat
+    label = <%unit.feat%>
+/>
+
+## Spells
+<%#unit.spells%>
+<Spell
+    infos = {{
+        name: <%name%>,
+        aat,
+    }}
+/>
+<%/unit.spells%>

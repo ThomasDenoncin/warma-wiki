@@ -1,7 +1,8 @@
 ---
 const { stats } = Astro.props
-const statsKeys = Object.keys(stats)
-const statsValues = Object.values(stats)
+const usedStats = Object.fromEntries(Object.entries(stats).filter(([key]) => stats[key] !== null));
+const statsKeys = Object.keys(usedStats)
+const statsValues = Object.values(usedStats)
 ---
 
 <table>

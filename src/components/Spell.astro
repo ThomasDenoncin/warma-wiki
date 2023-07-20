@@ -1,4 +1,6 @@
 ---
+import Stats from "./Stats.astro"
+
 const { infos } = Astro.props
 const spells = await Astro.glob('../blocks/spells/*.md')
 const spell = spells.find(
@@ -6,38 +8,16 @@ const spell = spells.find(
         spell.frontmatter.title === infos.name
     )
 )
-const statsKeys = Object.keys(spell?.frontmatter.stats)
-const statsValues = Object.values(spell?.frontmatter.stats)
+const stats = spell?.frontmatter.stats
 ---
 
 <div class="spell">
     <header>
         <h3>{ infos.name }</h3>
         <div class="stats">
-            <table>
-                <tr>
-                    { 
-                        infos.aat &&
-                        <th>aat</th>
-                    }
-                    { 
-                        statsKeys.map((stat: string) => (
-                            <th>{ stat }</th>
-                        )) 
-                    }
-                </tr>
-                <tr>
-                    {
-                        infos.aat &&
-                        <td>{ infos.aat }</td>
-                    }
-                    { 
-                        statsValues.map((stat: any) => (
-                            <td>{ stat }</td>
-                        ))
-                    }
-                </tr>
-            </table>
+            <Stats
+                stats = { stats }
+            />
         </div>
     </header>
     <blockquote>

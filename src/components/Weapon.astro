@@ -1,32 +1,47 @@
 ---
-import AbilitiesList from "./AbilitiesList.astro";
-import Advantages from "./Advantages.astro";
-import Stats from "./Stats.astro";
+import AbilitiesList from "./AbilitiesList.astro"
+import Advantages from "./Advantages.astro"
+import Stats from "./Stats.astro"
 
 const { infos } = Astro.props
+const weapons = await Astro.glob('../blocks/weapons/*.md')
+const weapon = weapons.find(
+    (weapon) => (
+        weapon.frontmatter.title === infos.name
+    )
+)
+
+const type = weapon?.frontmatter.type
+const stats = {
+    mat: type === 'melee' ? infos.stat : null,
+    rat: type === 'range' ? infos.stat : null,
+    ...weapon?.frontmatter.stats
+}
+const qualities = weapon?.frontmatter.qualities
+const abilities = weapon?.frontmatter.abilities
 ---
 
 <div class="weapon">
     <header>
-        <h3>{ infos.name } - { infos.type.toUpperCase() }</h3>
+        <h3>{ infos.name } - { weapon?.frontmatter.type.toUpperCase() }</h3>
         <div class="stats">
             <Stats
-                stats = { infos.stats }
+                stats = { stats }
             />
         </div>
         { 
-            infos.qualities &&
+            qualities &&
             <div class="qualities">
                 <Advantages 
-                    labels = { infos.qualities }
+                    labels = { qualities }
                 />
             </div>
         }
     </header>
     { 
-        infos.abilities &&
+        abilities &&
         <AbilitiesList
-            labels = { infos.abilities }
+            labels = { abilities }
         />
     }
 </div>

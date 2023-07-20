@@ -1,5 +1,6 @@
 ---
 title: 'Wild Aggression'
+type: 'spell'
 stats:
     cost: 2
     rng: 6

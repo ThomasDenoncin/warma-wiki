@@ -1,5 +1,6 @@
 ---
 title: 'Far Strike'
+type: 'animus'
 stats:
     cost: 1
     rng: 'Self'

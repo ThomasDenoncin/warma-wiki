@@ -1,5 +1,6 @@
 ---
 title: "Earth's Blessing"
+type: 'animus'
 stats:
     cost: 1
     rng: 'Self'

@@ -1,5 +1,6 @@
 ---
 title: 'Cursed Fate'
+type: 'spell'
 stats:
     cost: 2
     rng: 10

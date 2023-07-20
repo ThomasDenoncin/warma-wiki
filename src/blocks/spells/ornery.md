@@ -1,5 +1,6 @@
 ---
-title: "Ornery"
+title: 'Ornery'
+type: 'animus'
 stats:
     cost: 1
     rng: 'Self'

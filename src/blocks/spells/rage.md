@@ -1,5 +1,6 @@
 ---
-title: "Rage"
+title: 'Rage'
+type: 'animus'
 stats:
     cost: 2
     rng: '6'

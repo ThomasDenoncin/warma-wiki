@@ -1,5 +1,6 @@
 ---
 title: 'Sunder Spirit'
+type: 'spell'
 stats:
     cost: 2
     rng: 10

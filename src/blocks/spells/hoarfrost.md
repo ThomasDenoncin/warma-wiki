@@ -1,5 +1,6 @@
 ---
 title: 'Hoarfrost'
+type: 'spell'
 stats:
     cost: 3
     rng: 8

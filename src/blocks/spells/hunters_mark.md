@@ -1,5 +1,6 @@
 ---
 title: "Hunter's Mark"
+type: 'spell'
 stats:
     cost: 2
     rng: 10

@@ -1,5 +1,6 @@
 ---
 title: 'Freezing Mist'
+type: 'spell'
 stats:
     cost: 3
     rng: 'Ctrl'

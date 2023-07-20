@@ -1,5 +1,6 @@
 ---
-title: "Rage"
+title: 'Spiritual Conduit'
+type: 'spell'
 stats:
     cost: 1
     rng: 'Self'

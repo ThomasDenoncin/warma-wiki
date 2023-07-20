@@ -1,5 +1,6 @@
 ---
 title: 'Psycho Surgery'
+type: 'spell'
 stats:
     cost: 2
     rng: 'Self'

@@ -1,5 +1,6 @@
 ---
 title: 'Snow Shroud'
+type: 'spell'
 stats:
     cost: 2
     rng: 'Self'

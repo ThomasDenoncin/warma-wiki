@@ -1,5 +1,6 @@
 ---
 title: 'Frostbite'
+type: 'spell'
 stats:
     cost: 2
     rng: 'SP 8'

@@ -1,5 +1,6 @@
 ---
 title: 'Warpath'
+type: 'spell'
 stats:
     cost: 3
     rng: 'Self'
